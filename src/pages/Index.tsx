@@ -1,13 +1,40 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Layout } from '@/components/Layout';
+import { HeroSection } from '@/components/HeroSection';
+import { CategoriesSection } from '@/components/CategoriesSection';
+import { BestSellersSection } from '@/components/MenuSection';
+import { FeaturesSection } from '@/components/FeaturesSection';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <Layout>
+      <HeroSection />
+      <CategoriesSection />
+      
+      {/* Best Sellers */}
+      <section className="py-16 md:py-24">
+        <div className="container-app">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
+                Our Bestsellers
+              </h2>
+              <p className="text-muted-foreground mt-1">Most loved by our customers</p>
+            </div>
+            <Link to="/menu">
+              <Button variant="ghost">
+                View All <ArrowRight size={16} />
+              </Button>
+            </Link>
+          </div>
+          <BestSellersSection />
+        </div>
+      </section>
+      
+      <FeaturesSection />
+    </Layout>
   );
 };
 
